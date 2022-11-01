@@ -1,20 +1,18 @@
-import React from 'react';
-import type {Node} from 'react';
-import {
-  Text,
-  View,
-} from 'react-native';
+import Numbers from './components/Numbers';
+import { View,Text } from 'react-native';
+import { useState } from 'react';
 
+const App = () => {
 
-const App: () => Node = () => {
-
+  
+  const [val, setVal] = useState('Hello')
 
   return (
     <View>
-        <Text>Hello world!!!</Text>
+      <Text>{val}</Text>
+      <Numbers/>
     </View>
   );
 };
-
 
 export default App;

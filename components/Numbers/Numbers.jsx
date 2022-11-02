@@ -1,27 +1,24 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { pushInCalculateString } from '../../store/slices/AppSlice'
 import MyButton from '../MyButton'
 
-const variables = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-
+const variables = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
 
 export default function Numbers() {
+
+    const dispatch = useDispatch()
+
+    const onNumberPress = (val) => {
+        dispatch(pushInCalculateString(val))
+    }
+
     return (
-        <View style={styles.container}>
+        <>
             {
                 variables.map(
-                    (val, index) => <MyButton text={val} key={index} />)
+                    (val, index) => <MyButton onPress={() => onNumberPress(val)} text={val} key={index} />)
             }
-        </View>
+        </>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 30,
-        flexDirection: 'row',
-        margin: 10,
-        flexWrap: 'wrap'
-    },
-})

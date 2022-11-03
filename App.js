@@ -5,10 +5,9 @@ import AppView from './views/AppView';
 const App = () => {
   return (
     <Provider store={store}>
-     <AppView/>
+      <AppView />
     </Provider>
   );
 };
 
 export default App;
-``
